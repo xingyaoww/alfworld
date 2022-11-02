@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+FROM pytorch/pytorch:1.13.0-cuda11.6-cudnn8-runtime
 
 ARG USER_NAME
 ARG USER_PASSWORD
@@ -22,24 +22,11 @@ WORKDIR /home/$USER_NAME
 COPY ./docker/install_deps.sh /tmp/install_deps.sh
 RUN yes "Y" | /tmp/install_deps.sh
 
-COPY ./docker/install_nvidia.sh /tmp/install_nvidia.sh
-RUN yes "Y" | /tmp/install_nvidia.sh
-
-# install python3.6 (required for fast-downward)
-RUN apt-get update && \
-  apt-get install -y software-properties-common && \
-  add-apt-repository ppa:deadsnakes/ppa
-RUN apt-get update
-RUN apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv
-
 # setup python environment
 RUN cd $WORKDIR
-ENV VIRTUAL_ENV=/home/$USER_NAME/alfworld_env
-RUN python3.6 -m virtualenv --python=/usr/bin/python3.6 $VIRTUAL_ENV
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # install python requirements
-RUN pip install --upgrade pip==19.3.1
+RUN pip install --upgrade pip
 RUN pip install -U setuptools
 COPY ./requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
