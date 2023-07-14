@@ -9,8 +9,8 @@ revtok
 Pillow
 torch
 torchvision
-tensorboardX==1.8
-Click<7.2.0
+tensorboardX
+Click
 ai2thor==2.1.0
 transformers
 tokenizers

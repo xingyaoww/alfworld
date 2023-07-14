@@ -19,9 +19,6 @@ DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends \
   apt-utils \
   usbutils \
   dialog \
-  python3-virtualenv \
-  python3-dev \
-  python3-pip \
   ffmpeg \
   nvidia-settings \
   libffi-dev \
