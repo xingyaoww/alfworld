@@ -1,4 +1,4 @@
-numpy #==1.16.2
+numpy
 pandas
 opencv-python
 networkx
@@ -7,8 +7,8 @@ tqdm
 vocab
 revtok
 Pillow
-torch==1.2.0
-torchvision==0.4.0
+torch
+torchvision
 tensorboardX==1.8
 Click<7.2.0
 ai2thor==2.1.0
