@@ -7,7 +7,7 @@ tqdm
 vocab
 revtok
 Pillow
-Click<7.2.0
+Click
 ai2thor==2.1.0
 transformers
 tokenizers
